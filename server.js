@@ -7,11 +7,13 @@ const PORT = process.env.PORT || 3000;
 
 // Library that has all of the GET and Set commands
 const express = require('express');
+const superagent = require('superagent');
 
 
 const app = express();
 
 
+app.get('/happyhour', searchGeocodeData);
 
 
 
@@ -22,9 +24,26 @@ app.set('view-engine', 'ejs');
 
 
 // Redirects the user to the index page
-app.get('/', (request, response) => {
+app.get('/', handleUserInput);
+
+// Functions //
+
+function searchGeocodeData(request, response) {
+  const searchQuery = request.query.userInput;
+  const URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${searchQuery}&key=${process.env.GOOGLE_API_KEY}`;
+  superagent.get(URL).then(result => {
+    if(result.body.status === 'ZERO_RESULTS') {
+      response.status(500).send('Something went wrong, dummy');
+      return;
+    }
+    const geocodeResult = result.body.results[0];
+    response.render('happyHour.ejs', {geocodeResult:geocodeResult});
+  })
+}
+
+function handleUserInput(request, response) {
   response.render('index.ejs');
-});
+}
 
 
 
