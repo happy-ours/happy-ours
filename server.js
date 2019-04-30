@@ -79,7 +79,10 @@ app.get('/', (request, response) => {
   response.render('index.ejs');
 });
 
+app.get('/about_us', (request, response) => {
+  response.render('about_us.ejs');
 
+})
 
 
 // If connected, logs to the terminal which port it is on
