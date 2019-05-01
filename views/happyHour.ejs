@@ -1,18 +1,23 @@
 <%- include('layout/head.ejs') %>
 
 <body>
+  <h3>Happy Ours</h3>
+  <h5><%= allResultsObject.currentIcon %></h5>
+  <div id="temp"><%= allResultsObject.currentTemp %>&#176 F</div>
+  <div id="sundown">Sunset at <%= allResultsObject.sunset %> </div>
   <ul>
-    <li>Current Forecast: <%= allResultsObject.currentIcon %></li>
-    <li>Current Temperature: <%= allResultsObject.currentTemp %> degrees F</li>
-    <li>Sunset: <%= allResultsObject.sunset %> </li>
-   <li>Here are some Happy Hour locations near <%= allResultsObject.address %></li>
+   <li class="location-res" >Happy Hour locations near <%= allResultsObject.address %></li>
    <li><img id="map" src="<%= allResultsObject.map %>" alt=""></li>
    <% for(let i = 0; i < allResultsObject.hh.length; i++) { %>
-  <li> Restaurant Name: <%= allResultsObject.hh[i].name %></li>
-  <li> Price: <%= allResultsObject.hh[i].prices %> / 5</li>
-  <li> Rating: <%= allResultsObject.hh[i].rating %> / 5</li>
-  <li> Open Now: <%= allResultsObject.hh[i].openNow %></li>
+  <br><br><li class="name"> <%= allResultsObject.hh[i].name %> </li>
+  <li class="price"> Price: <%= allResultsObject.hh[i].prices %> / 5</li>
+  <li class="rating"> Rating: <%= allResultsObject.hh[i].rating %> / 5</li>
+  <li class="open"> Open Now: <%= allResultsObject.hh[i].openNow %></li>
+  <li> Distance: <%= allResultsObject.routes[i].distance %></li>
+  <li> Duration: <%= allResultsObject.routes[i].duration %></li>
+  <li> UberX Estimate: <%= allResultsObject.uber[i].priceEstimates %></li>
   <% } %>
   </ul>
 </body>
+<footer>Copyright 2019 &copy</footer>
 </html>
