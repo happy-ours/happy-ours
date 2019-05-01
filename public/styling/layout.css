@@ -1,0 +1,40 @@
+@font-face { font-family: 'Rockness'; src: url('../assets/Rockness.otf'); 
+  font-family: 'Rockness'; src: url('../assets/Rockness.ttf');
+} 
+
+body {
+  background-size: cover;
+  background: url(../assets/coconut.jpg) no-repeat;
+  color: rgb(250, 237, 237);
+}
+
+
+
+h1 {
+  font-family: 'Rockness';
+  font-size: 24vw;
+  color :rgb(241, 113, 156);
+  text-align: center;
+  max-width: 100%;
+  margin: 0%;
+  text-shadow: -1px -1px 0 rgb(250, 237, 237), 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+
+h4 {
+  font-family: 'Staatliches', cursive;
+  text-align: center;
+  text-shadow: -1px -1px 0 rgb(49, 48, 48), 1px -1px 0 rgb(49, 48, 48), -1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48);
+}
+
+.container {
+  margin: 2%;
+  padding: 2%;
+  text-align: center;
+}
+
+.aboutUsContainer {
+  font-family: 'Staatliches', cursive;
+  margin: 2%;
+  padding: 2%;
+  text-align: center;
+}
