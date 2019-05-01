@@ -161,10 +161,10 @@ function searchRouteData (request, response){
   })
 
   let routeTwo = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest1}&key=${process.env.GOOGLE_API_KEY}`)
-  .then(result =>{
-    const searchedRoute = result.body.routes[0].legs[0];
-    resultsArray.push(new Routes(searchedRoute));
-  })
+    .then(result =>{
+      const searchedRoute = result.body.routes[0].legs[0];
+      resultsArray.push(new Routes(searchedRoute));
+    })
 
   let routeThree = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest2}&key=${process.env.GOOGLE_API_KEY}`).then(result =>{
     const searchedRoute = result.body.routes[0].legs[0];
@@ -192,31 +192,31 @@ function searchUberData (request, response){
   const resultArray = [];
 
   let uber1 = superagent.get(`https://api.uber.com/v1.2/estimates/price?start_latitude=${allResultsObject.originLat}&start_longitude=${allResultsObject.originLng}&end_latitude=${allResultsObject.hh[0].destLat}&end_longitude=${allResultsObject.hh[0].destLng}`).set('Authorization', `Token ${process.env.UBER_API_KEY}`)
-  .then(result =>{
-    resultArray.push(new Uber(result.body));
-  })
+    .then(result =>{
+      resultArray.push(new Uber(result.body));
+    })
 
   let uber2 = superagent.get(`https://api.uber.com/v1.2/estimates/price?start_latitude=${allResultsObject.originLat}&start_longitude=${allResultsObject.originLng}&end_latitude=${allResultsObject.hh[1].destLat}&end_longitude=${allResultsObject.hh[1].destLng}`).set('Authorization', `Token ${process.env.UBER_API_KEY}`)
-  .then(result =>{
-    resultArray.push(new Uber(result.body));
-  })
+    .then(result =>{
+      resultArray.push(new Uber(result.body));
+    })
 
   let uber3 = superagent.get(`https://api.uber.com/v1.2/estimates/price?start_latitude=${allResultsObject.originLat}&start_longitude=${allResultsObject.originLng}&end_latitude=${allResultsObject.hh[2].destLat}&end_longitude=${allResultsObject.hh[2].destLng}`).set('Authorization', `Token ${process.env.UBER_API_KEY}`)
-  .then(result =>{
-    resultArray.push(new Uber(result.body));
-  })
+    .then(result =>{
+      resultArray.push(new Uber(result.body));
+    })
 
   let uber4 = superagent.get(`https://api.uber.com/v1.2/estimates/price?start_latitude=${allResultsObject.originLat}&start_longitude=${allResultsObject.originLng}&end_latitude=${allResultsObject.hh[3].destLat}&end_longitude=${allResultsObject.hh[3].destLng}`).set('Authorization', `Token ${process.env.UBER_API_KEY}`)
-  .then(result =>{
-    resultArray.push(new Uber(result.body));
-  })
+    .then(result =>{
+      resultArray.push(new Uber(result.body));
+    })
 
   let uber5 = superagent.get(`https://api.uber.com/v1.2/estimates/price?start_latitude=${allResultsObject.originLat}&start_longitude=${allResultsObject.originLng}&end_latitude=${allResultsObject.hh[4].destLat}&end_longitude=${allResultsObject.hh[4].destLng}`).set('Authorization', `Token ${process.env.UBER_API_KEY}`)
-  .then(result =>{
-    resultArray.push(new Uber(result.body));
-  })
+    .then(result =>{
+      resultArray.push(new Uber(result.body));
+    })
 
-  Promise.all([uber1, uber2, uber3, uber4]).then(result =>{
+  Promise.all([uber1, uber2, uber3, uber4, uber5]).then(result =>{
     allResultsObject.uber = resultArray;
     response.render('happyHour.ejs', {allResultsObject:allResultsObject});
   })

@@ -4,6 +4,9 @@
   font-family: 'Retrocycles'; src: url('../assets/Retrocycles.otf');
   font-family: 'Breathy'; src: url('../assets/SHOOTING.otf');
   font-family: 'Breathy'; src: url('../assets/SHOOTING.ttf');
+  font-family: 'Beb'; src: url('../assets/Beb.otf');
+  font-family: 'Beb'; src: url('../assets/Beb.ttf');
+  font-family: 'Nadia'; src: url('../assets/Nadia.ttf');
 } 
 
 body {
@@ -24,7 +27,7 @@ h1 {
   color :rgb(241, 113, 156);
   text-align: center;
   max-width: 100%;
-  margin: 2%;
+  margin: 4%;
   text-shadow: -1px -1px 0 rgb(250, 237, 237), 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 
@@ -48,32 +51,42 @@ h5 {
   margin-top: 8%;
   text-shadow: -1px -1px 0 rgb(65, 63, 63), 1px -1px 0 rgb(49, 48, 48), -1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48);
   float: left;
-  font-family: 'Breathy';
+  font-family: 'Beb';
   /* margin-left: 3%; */
 
 }
 
 h4 {
-  margin: 6%;
-  color: rgb(250, 228, 154);
-  font-family: 'Retrocycles';
+  margin-top: -1%;
+  margin-bottom: 10%;
+  font-size: 3vw;
+  color: rgb(252, 246, 223);
+  font-family: 'Nadia';
   text-align: center;
-  text-shadow: -1px -1px 0 rgb(49, 48, 48), 1px -1px 0 rgb(49, 48, 48), -1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48);
+  text-shadow: 2px 2px 0 rgb(49, 48, 48), 2px 2px 0 rgb(49, 48, 48), 2px 2px 0 rgb(49, 48, 48), 2px 2px 0 rgb(49, 48, 48);
 }
 
+/* .slogan {
+  margin-right: 56%;
+  margin-bottom: 4%;
+  font-size: 14px;
+  font-family: 'Her';
+} */
+
+
 .location-res {
-  font-family: 'Archivo Narrow', sans-serif;
-  font-size: 2vw;
+  font-family: 'Beb';
+  font-size: 32px;
   color :rgb(250, 228, 154);
 }
 
 .name {
-  font-size: 2vw;
+  font-size: 24px;
 }
 
 #temp {
   color: rgb(250, 228, 154);
-  font-family: 'Breathy';
+  font-family: 'Beb';
   font-size: 2vw;
   margin: 6%;
   float: left;
@@ -83,17 +96,11 @@ h4 {
 
 #sundown {
   color: rgb(250, 228, 154);
-  font-family: 'Breathy';
+  font-family: 'Beb';
   font-size: 2vw;
   margin: 6%;
   margin-top: 8%;
   float: left;
-}
-
-.container {
-  margin: 2%;
-  padding: 2%;
-  text-align: center;
 }
 
 .aboutUsContainer {
@@ -111,9 +118,8 @@ ul {
   margin: auto;
   padding: 30px;
 	overflow-x: hidden;
-  -webkit-box-shadow: inset rgb(241, 113, 156) 0 0 0 3px;
+  -webkit-box-shadow: inset rgb(241, 113, 156) 0 0 0 1px;
   border-radius: 8px;
-  /* inset #02181da1 0 0 0 10px; */
 }
 
 #map {
@@ -125,51 +131,78 @@ ul {
 }
 
 footer {
-  margin-top: 4%;
-  margin-bottom: 1%;
+  margin-top: 1%;
+  margin-bottom: 2%;
+  text-align: center;
+  bottom: 0px;
+  width: 100%;
+  color: rgb(250, 228, 154);
 }
 
-.search-box
-{
-  background-color: rgba(0, 0, 0, 0.644);
-  height: 40px;
-  border-radius: 40px;
-  padding: 10px;
-  width: 70%;
-  margin: 12%;
+.container {
+  margin-left: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
-.search-box:hover > .search-txt
-{
-    width: 240px;
-    padding: 0 6px;
-}
-.search-box:hover > .search-btn
-{
-   background: rgba(0, 0, 0, 0.644);
-}
-.search-btn
-{
-    color: rgb(241, 113, 156);
+
+.searchbar {
     float: right;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.644);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: rgba(255, 244, 244, 0.918);
+    color: rgba(41, 38, 38, 0.938);
+    padding: 6px 10px;
+    width: 300px;
+    /* border: rgba(0, 0, 0, 0.514) solid 2px; */
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    transition: 0.3s;
+    border-radius: 8px;
+    margin-bottom: 18%;
 }
-.search-txt
-{
-    border: none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
-    color: rgb(241, 113, 156);
-    font-size: 16px;
-    transition: 0.4s;
-    line-height: 40px;
-    width: 0px;
 
+.searchbar::placeholder {
+    color: rgba(19, 18, 18, 0.644);
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    /* transition: 0.2s; */
+}
+
+.searchbar:focus {
+    width: 300px;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    transition: 0.3s;
+    border:rgba(255, 244, 244, 0.774) solid 2px;
+    outline: none;
+    text-align: center;
+}
+
+.bar {
+  max-width: 35%;
+  margin: 1%;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+h6 {
+  margin: 0%;
+}
+
+.instagram {
+  background-color: rgba(255, 244, 244, 0.438);
+  width: 70%;
+  margin: auto;
+  padding: 30px;
+	overflow-x: hidden;
+  -webkit-box-shadow: inset rgba(49, 48, 48, 0.603) 0 0 0 1px;
+  border-radius: 8px;
+}
+
+.gram-logo {
+  max-width: 6%;
 }

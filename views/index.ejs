@@ -1,15 +1,26 @@
 <%- include('layout/head.ejs') %>
 
 <body>
-  <h1>Happy Ours</h1>
+  <h1>Happy <br>Ours</h1>
   <h4>Happy Looks Good On You</h4>
-    <form action="/happyhour" method="GET">
-      <div class="search-box">
-          <input type="text" name="userInput" placeholder="Search Your Location" class="search-txt">
-          <a href="" class="search-btn">
-                  <i class="fas fa-search"></i>
-          </a>
-      </div>
-    </form>
+  <div class="container">
+      <form action="/happyhour" method="GET">
+        <input id="searchBar" class="searchbar" type="text" name="userInput" placeholder="Search Your Location">
+      </form>
+    </div>
+
+    <div class="instagram">
+      <h6><img class="gram-logo" src="../assets/instagram.png" alt="instagram"></h6>
+      <img class ="bar" src="../assets/bar.jpg" alt="drink">
+      <img class="bar" src="../assets/alcohol-bar-beverage-989699.jpg" alt="happy">
+      <img class="bar" src="../assets/adults.jpg" alt="adults">
+      <img class="bar" src="../assets/people.jpg" alt="people">
+    </div>
+
 </body>
-<footer><a href="/about_us">About Us</a></footer>
+<footer>
+    <div class="aboutUsContainer">
+        <a href="/about_us">About Us</a>
+      </div>
+Copyright 2019 &copy
+</footer>
