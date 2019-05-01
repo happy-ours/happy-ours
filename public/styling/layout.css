@@ -1,14 +1,22 @@
 @font-face { font-family: 'Rockness'; src: url('../assets/Rockness.otf'); 
   font-family: 'Rockness'; src: url('../assets/Rockness.ttf');
+  font-family: 'Dings'; src: url('../assets/Dings.ttf');
+  font-family: 'Retrocycles'; src: url('../assets/Retrocycles.otf');
+  font-family: 'Breathy'; src: url('../assets/SHOOTING.otf');
+  font-family: 'Breathy'; src: url('../assets/SHOOTING.ttf');
 } 
 
 body {
   background-size: cover;
   background: url(../assets/coconut.jpg) no-repeat;
   color: rgb(250, 237, 237);
+  text-align: center;
+  /* font-size: 6vw; */
+  font-family: 'Archivo Narrow', sans-serif;
+  text-shadow: -1px -1px 0 rgb(49, 48, 48), 1px -1px 0 rgb(49, 48, 48), -1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48);
+
+
 }
-
-
 
 h1 {
   font-family: 'Rockness';
@@ -16,14 +24,70 @@ h1 {
   color :rgb(241, 113, 156);
   text-align: center;
   max-width: 100%;
-  margin: 0%;
+  margin: 2%;
   text-shadow: -1px -1px 0 rgb(250, 237, 237), 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
 }
 
+h3 {
+  margin: 6%;
+  margin-right: 3%;
+  margin-bottom: 6%;
+  font-family: 'Rockness';
+  float: left;
+  font-size: 8vw;
+  color: rgb(241, 113, 156);
+  text-shadow: -1px -1px 0 rgb(250, 237, 237), 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+
+h5 {
+  /* font-family: 'Dings'; */
+  font-size: 2vw;
+  color :rgb(250, 228, 154);
+  margin: 6%;
+  margin-right: 1%;
+  margin-top: 8%;
+  text-shadow: -1px -1px 0 rgb(65, 63, 63), 1px -1px 0 rgb(49, 48, 48), -1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48);
+  float: left;
+  font-family: 'Breathy';
+  /* margin-left: 3%; */
+
+}
+
 h4 {
-  font-family: 'Staatliches', cursive;
+  margin: 6%;
+  color: rgb(250, 228, 154);
+  font-family: 'Retrocycles';
   text-align: center;
   text-shadow: -1px -1px 0 rgb(49, 48, 48), 1px -1px 0 rgb(49, 48, 48), -1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48);
+}
+
+.location-res {
+  font-family: 'Archivo Narrow', sans-serif;
+  font-size: 2vw;
+  color :rgb(250, 228, 154);
+}
+
+.name {
+  font-size: 2vw;
+}
+
+#temp {
+  color: rgb(250, 228, 154);
+  font-family: 'Breathy';
+  font-size: 2vw;
+  margin: 6%;
+  float: left;
+  margin-right: 1%;
+  margin-top: 8%;
+}
+
+#sundown {
+  color: rgb(250, 228, 154);
+  font-family: 'Breathy';
+  font-size: 2vw;
+  margin: 6%;
+  margin-top: 8%;
+  float: left;
 }
 
 .container {
@@ -33,8 +97,79 @@ h4 {
 }
 
 .aboutUsContainer {
-  font-family: 'Staatliches', cursive;
+  font-family: 'Archivo Narrow', sans-serif;
   margin: 2%;
   padding: 2%;
   text-align: center;
+}
+
+a:visited { color: rgb(250, 228, 154); }
+
+ul {
+  background-color: rgba(49, 48, 48, 0.603);
+  width: 70%;
+  margin: auto;
+  padding: 30px;
+	overflow-x: hidden;
+  -webkit-box-shadow: inset rgb(241, 113, 156) 0 0 0 3px;
+  border-radius: 8px;
+  /* inset #02181da1 0 0 0 10px; */
+}
+
+#map {
+  max-width: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+footer {
+  margin-top: 4%;
+  margin-bottom: 1%;
+}
+
+.search-box
+{
+  background-color: rgba(0, 0, 0, 0.644);
+  height: 40px;
+  border-radius: 40px;
+  padding: 10px;
+  width: 70%;
+  margin: 12%;
+}
+.search-box:hover > .search-txt
+{
+    width: 240px;
+    padding: 0 6px;
+}
+.search-box:hover > .search-btn
+{
+   background: rgba(0, 0, 0, 0.644);
+}
+.search-btn
+{
+    color: rgb(241, 113, 156);
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.644);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.search-txt
+{
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: rgb(241, 113, 156);
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 0px;
+
 }
