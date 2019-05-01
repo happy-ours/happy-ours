@@ -57,7 +57,7 @@ function Zomato (seachQuery) {
 }
 
 function Uber (seachQuery){
-  this.priceEstimates = seachQuery.priceEstimates;
+  this.priceEstimates = seachQuery.prices[4].estimate;
 }
 
 function Routes (seachQuery){
@@ -155,38 +155,82 @@ function searchRouteData (request, response){
   const dest3 = allResultsObject.hh[3].name.replace(regex, '');
   const dest4 = allResultsObject.hh[4].name.replace(regex, '');
 
-  let one = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest0}&key=${process.env.GOOGLE_API_KEY}`).then(result =>{
+  let routeOne = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest0}&key=${process.env.GOOGLE_API_KEY}`).then(result =>{
     const searchedRoute = result.body.routes[0].legs[0];
     resultsArray.push(new Routes(searchedRoute));
   })
 
-  let two = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest1}&key=${process.env.GOOGLE_API_KEY}`)
+  let routeTwo = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest1}&key=${process.env.GOOGLE_API_KEY}`)
   .then(result =>{
     const searchedRoute = result.body.routes[0].legs[0];
     resultsArray.push(new Routes(searchedRoute));
   })
 
-  let three = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest2}&key=${process.env.GOOGLE_API_KEY}`).then(result =>{
+  let routeThree = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest2}&key=${process.env.GOOGLE_API_KEY}`).then(result =>{
     const searchedRoute = result.body.routes[0].legs[0];
     resultsArray.push(new Routes(searchedRoute));
   })
 
-  let four = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest3}&key=${process.env.GOOGLE_API_KEY}`).then(result =>{
+  let routeFour = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest3}&key=${process.env.GOOGLE_API_KEY}`).then(result =>{
     const searchedRoute = result.body.routes[0].legs[0];
     resultsArray.push(new Routes(searchedRoute));
   })
 
-  let five = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest4}&key=${process.env.GOOGLE_API_KEY}`).then(result =>{
+  let routeFive = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest4}&key=${process.env.GOOGLE_API_KEY}`).then(result =>{
     const searchedRoute = result.body.routes[0].legs[0];
     resultsArray.push(new Routes(searchedRoute));
   })
 
-  Promise.all([one, two, three, four, five]).then(result =>{
+  Promise.all([routeOne, routeTwo, routeThree, routeFour, routeFive]).then(result =>{
     allResultsObject.routes = resultsArray;
-    console.log(allResultsObject);
+    searchUberData(request, response);
+  })
+}
+
+
+function searchUberData (request, response){
+  const resultArray = [];
+
+  let uber1 = superagent.get(`https://api.uber.com/v1.2/estimates/price?start_latitude=${allResultsObject.originLat}&start_longitude=${allResultsObject.originLng}&end_latitude=${allResultsObject.hh[0].destLat}&end_longitude=${allResultsObject.hh[0].destLng}`).set('Authorization', `Token ${process.env.UBER_API_KEY}`)
+  .then(result =>{
+    resultArray.push(new Uber(result.body));
+  })
+
+  let uber2 = superagent.get(`https://api.uber.com/v1.2/estimates/price?start_latitude=${allResultsObject.originLat}&start_longitude=${allResultsObject.originLng}&end_latitude=${allResultsObject.hh[1].destLat}&end_longitude=${allResultsObject.hh[1].destLng}`).set('Authorization', `Token ${process.env.UBER_API_KEY}`)
+  .then(result =>{
+    resultArray.push(new Uber(result.body));
+  })
+
+  let uber3 = superagent.get(`https://api.uber.com/v1.2/estimates/price?start_latitude=${allResultsObject.originLat}&start_longitude=${allResultsObject.originLng}&end_latitude=${allResultsObject.hh[2].destLat}&end_longitude=${allResultsObject.hh[2].destLng}`).set('Authorization', `Token ${process.env.UBER_API_KEY}`)
+  .then(result =>{
+    resultArray.push(new Uber(result.body));
+  })
+
+  let uber4 = superagent.get(`https://api.uber.com/v1.2/estimates/price?start_latitude=${allResultsObject.originLat}&start_longitude=${allResultsObject.originLng}&end_latitude=${allResultsObject.hh[3].destLat}&end_longitude=${allResultsObject.hh[3].destLng}`).set('Authorization', `Token ${process.env.UBER_API_KEY}`)
+  .then(result =>{
+    resultArray.push(new Uber(result.body));
+  })
+
+  let uber5 = superagent.get(`https://api.uber.com/v1.2/estimates/price?start_latitude=${allResultsObject.originLat}&start_longitude=${allResultsObject.originLng}&end_latitude=${allResultsObject.hh[4].destLat}&end_longitude=${allResultsObject.hh[4].destLng}`).set('Authorization', `Token ${process.env.UBER_API_KEY}`)
+  .then(result =>{
+    resultArray.push(new Uber(result.body));
+  })
+
+  Promise.all([uber1, uber2, uber3, uber4]).then(result =>{
+    allResultsObject.uber = resultArray;
     response.render('happyHour.ejs', {allResultsObject:allResultsObject});
   })
 }
+
+// function searchZomatoData (request, response){
+//   console.log(allResultsObject.hh[0].name);
+//   let menu1 = superagent.get(`https://developers.zomato.com/api/v2.1/search?q=${allResultsObject.hh[0].name}`).set('user-key', `${process.env.ZOMATO_API_KEY}`).then(result =>{
+//     console.log(result.body.restaurants[0].restaurant.menu_url);
+
+//   })
+// }
+
+
 // function searchRouteData(request, response) {
 //   const resultsArray = [];
 //   const regex = /(?![\x00-\x7F]|[\xC0-\xDF][\x80-\xBF]|[\xE0-\xEF][\x80-\xBF]{2}|[\xF0-\xF7][\x80-\xBF]{3})./gi;
