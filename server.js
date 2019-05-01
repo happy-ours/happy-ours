@@ -137,12 +137,57 @@ function whenIsTheSunset(request, response) {
   superagent.get(URL).then(result => {
     const sunsetData = new Sunset(result);
     allResultsObject.sunset = sunsetData.sunsetTime;
-    response.render('happyHour.ejs', {allResultsObject:allResultsObject});
-    // searchRouteData(request, response);
+    searchRouteData(request, response);
   })
+
 }
 
-// TODO:function searchRouteData(request, response) {
+
+
+function searchRouteData (request, response){
+
+  const resultsArray = [];
+
+  const regex = /(?![\x00-\x7F]|[\xC0-\xDF][\x80-\xBF]|[\xE0-\xEF][\x80-\xBF]{2}|[\xF0-\xF7][\x80-\xBF]{3})./gi;
+  const dest0 = allResultsObject.hh[0].name.replace(regex, '');
+  const dest1 = allResultsObject.hh[1].name.replace(regex, '');
+  const dest2 = allResultsObject.hh[2].name.replace(regex, '');
+  const dest3 = allResultsObject.hh[3].name.replace(regex, '');
+  const dest4 = allResultsObject.hh[4].name.replace(regex, '');
+
+  let one = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest0}&key=${process.env.GOOGLE_API_KEY}`).then(result =>{
+    const searchedRoute = result.body.routes[0].legs[0];
+    resultsArray.push(new Routes(searchedRoute));
+  })
+
+  let two = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest1}&key=${process.env.GOOGLE_API_KEY}`)
+  .then(result =>{
+    const searchedRoute = result.body.routes[0].legs[0];
+    resultsArray.push(new Routes(searchedRoute));
+  })
+
+  let three = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest2}&key=${process.env.GOOGLE_API_KEY}`).then(result =>{
+    const searchedRoute = result.body.routes[0].legs[0];
+    resultsArray.push(new Routes(searchedRoute));
+  })
+
+  let four = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest3}&key=${process.env.GOOGLE_API_KEY}`).then(result =>{
+    const searchedRoute = result.body.routes[0].legs[0];
+    resultsArray.push(new Routes(searchedRoute));
+  })
+
+  let five = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${dest4}&key=${process.env.GOOGLE_API_KEY}`).then(result =>{
+    const searchedRoute = result.body.routes[0].legs[0];
+    resultsArray.push(new Routes(searchedRoute));
+  })
+
+  Promise.all([one, two, three, four, five]).then(result =>{
+    allResultsObject.routes = resultsArray;
+    console.log(allResultsObject);
+    response.render('happyHour.ejs', {allResultsObject:allResultsObject});
+  })
+}
+// function searchRouteData(request, response) {
 //   const resultsArray = [];
 //   const regex = /(?![\x00-\x7F]|[\xC0-\xDF][\x80-\xBF]|[\xE0-\xEF][\x80-\xBF]{2}|[\xF0-\xF7][\x80-\xBF]{3})./gi;
 //   for(let i = 0; i < allResultsObject.hh.length; i++){
@@ -157,11 +202,18 @@ function whenIsTheSunset(request, response) {
 //   }
 // }
 
+// let one = superagent.get(`https://maps.googleapis.com/maps/api/directions/json?origin=${allResultsObject.userInput}&destination=${allResultsObject.hh[0].name}&key=${process.env.GOOGLE_API_KEY}`).then(result =>{
+//   const searchedRoute = result.body.routes[0].legs[0];
+// })
+
+
+
+
 // TODO:function searchMenuData(request, response) {
 //   const URL = `https://developers.zomato.com/api/v2.1/search?q=${allResultsObject.name}
 //   `;
 //   superagent.get(URL).then(result => {
-//     const 
+//     const
 //   })
 // }
 
