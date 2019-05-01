@@ -13,6 +13,9 @@
   <li class="price"> Price: <%= allResultsObject.hh[i].prices %> / 5</li>
   <li class="rating"> Rating: <%= allResultsObject.hh[i].rating %> / 5</li>
   <li class="open"> Open Now: <%= allResultsObject.hh[i].openNow %></li>
+  <li> Distance: <%= allResultsObject.routes[i].distance %></li>
+  <li> Duration: <%= allResultsObject.routes[i].duration %></li>
+  <li> Uber Estimate: <%= allResultsObject.uber[i].priceEstimates %></li>
   <% } %>
   </ul>
 </body>
