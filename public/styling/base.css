@@ -4,25 +4,27 @@
 
 
 .meetTheTeam{
-  margin-top: 15%;
+  margin-top: 4%;
 }
 
-.aboutUsTitle{
+/* .aboutUsTitle{
   font-size: 60px;
   margin-top: 3%;
   margin-left: 35%;
   font-family: sans-serif;
-}
+} */
 
 .aboutMe{
   background-color: aliceblue;
-  margin-top: 8%;
+  margin-top: 4%;
   width: 96%;
   margin-left: 2%;
   height: 275px;
 }
 
 .aboutUsImg{
+  border-radius: 8px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
   float: left;
   width: 275px;
   height: 275px;
@@ -45,6 +47,7 @@
   font-size: 22px;
   height: 220px;
   font-family: sans-serif;
+  margin-top: 5%;
 }
 
 .bio p{
@@ -54,7 +57,7 @@
 }
 
 .favBar{
-  margin-bottom: -10%;
+  /* margin-bottom: -5%; */
   height: 10px;
 }
 
@@ -71,36 +74,31 @@
 }
 
 .melissa{
-  background-color: #88ade7;
+  background-color: #88ace7a1;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
 .evan{
-  background-color: #78c3e3;
+  background-color: #78c3e3a9;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
 .williams{
-  background-color: #69dfde;
+  background-color: #69dfdda4;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
 .kris{
-  background-color: #5adbb4;
+  background-color: #5adbb4a1;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
 
 .ginger{
-  background-color: #4bd783;
-}
-
-.aboutUsBackButton{
-  width: 100px;
-  height: 40px;
-  line-height: 38px;
-  border-radius: 10px;
-  background-color: aqua;
-  margin: 10px 0 15px 20px;
-}
-
-.aboutUsBackButton > a{
-  text-decoration: none;
-  color: inherit;
-  margin-left: 20%;
+  background-color: #4bd783a4;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
