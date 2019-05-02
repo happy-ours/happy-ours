@@ -1,4 +1,3 @@
-![Alt text](public/assets/readme.pictures.png "Happy Ours")
 
 # Happy-Ours
  
@@ -47,7 +46,7 @@ searchGeocodeData - URL = `https://maps.googleapis.com/maps/api/geocode/json?add
 
 getMap - URL = `https://maps.googleapis.com/maps/api/staticmap?center=${allResultsObject.originLat},${allResultsObject.originLng}&zoom=13&size=600x300&maptype=roadmap&key=${process.env.GOOGLE_API_KEY}`;
 
-searchWeatherData - URL = `https://api.darksky.net/forecast/776a7b4b172c83e5eaf765414951b01e/${allResultsObject.originLat},${allResultsObject.originLng}`;
+searchWeatherData - URL = `https://api.darksky.net/forecast/${WEATHER_API_KEY}/${allResultsObject.originLat},${allResultsObject.originLng}`;
 
 searchPlacesData - URL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${searchTerm}&location=${allResultsObject.originLat},${allResultsObject.originLng}&radius=1600&key=${process.env.GOOGLE_API_KEY}`;
 
