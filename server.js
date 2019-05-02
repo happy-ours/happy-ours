@@ -66,6 +66,7 @@ function Places(resultObj){
   }else{
     this.openNow = 'Currently Closed';
   }
+  this.petfriendly;
 }
 
 function Sunset(resultObj){
@@ -237,10 +238,42 @@ function searchUberData (request, response){
 }
 
 // ----------------DATABASE---------------------------------------
-//TODO: Complete this function. Add pet info to database!
+
+//Adds restaurant to the database
 function addPetInformationToDB(request, response){
   console.log(request.body);
-  response.render('happy_hour.ejs', {allResultsObject: allResultsObject});
+  const name = request.body.name;
+  var count = parseInt(request.body.Answer);
+  var idx = parseInt(request.body.index)
+  checkDB(name, count, idx, response).then(result => {
+    if(result === 'NOT IN DATABASE'){
+      client.query('INSERT INTO pets (restaurant, petfriendly) VALUES ($1, $2)', [name, count])
+      response.render('happy_hour.ejs', {allResultsObject: allResultsObject});
+    }
+  });
+}
+
+//Checks if the restaurant exists in the database
+//If not returns a negative response
+//If yes, increment the votes and update the data base
+function checkDB(name, count, idx, response){
+  return client.query('SELECT * FROM pets WHERE restaurant=$1', [name]).then(result => {
+    if(result.rows[0]){
+      client.query('SELECT petfriendly FROM pets WHERE restaurant=$1', [name]).then(result => {
+        if(count === 1){
+          count = result.rows[0].petfriendly + 1;
+        }else{
+          count = result.rows[0].petfriendly - 1;
+        }
+        client.query('UPDATE pets SET petfriendly=$1 WHERE restaurant=$2', [count, name]).then(result => {
+          allResultsObject.hh[idx].petfriendly = count;
+          response.render('happy_hour.ejs', {allResultsObject: allResultsObject});
+        });
+      });
+    }else{
+      return 'NOT IN DATABASE'
+    }
+  })
 }
 
 // If connected, logs to the terminal which port it is on

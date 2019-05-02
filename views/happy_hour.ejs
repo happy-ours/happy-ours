@@ -17,14 +17,17 @@
   <li> Duration: <%= allResultsObject.routes[i].duration %></li>
   <li> UberX Estimate: <%= allResultsObject.uber[i].priceEstimates %></li>
   <li>
-      <input type="submit" value="Pet Friendly?" id="showForm">
+      <input type="submit" value="Pet Friendly?" class="showForm">
+      <li class="petInformation"> <%= allResultsObject.hh[i].petfriendly %> people say this location is pet friendly</li>
       <form action="/pet_friendly" method="POST" id="petForm">
         <input type="hidden" value="PUT" name='_method'>
+        <input type="hidden" value=  <%= allResultsObject.hh[i].name %> name="name">
+        <input type="hidden" value=  <%= i %> name="index">
         <label class="petInformation">Yes</label>
-        <input type="checkbox" value="Yes" name="Yes" class="petInformation" id="Yes">
+        <input type="checkbox" value="1" name="Answer" class="petInformation" id="Yes">
         </label>
         <label class="petInformation">No
-        <input type="checkbox" value="No" name="No" class="petInformation" id="No">
+        <input type="checkbox" value="-1" name="Answer" class="petInformation" id="No">
         </label> 
         <input type="submit" value="Save" class="petInformation">
       </form>
