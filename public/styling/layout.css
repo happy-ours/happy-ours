@@ -206,3 +206,7 @@ h6 {
 .gram-logo {
   max-width: 6%;
 }
+
+.petInformation{
+  display: none;
+}
