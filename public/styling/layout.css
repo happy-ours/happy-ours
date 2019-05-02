@@ -130,11 +130,11 @@ h4 {
 
 a:visited { color: rgb(250, 228, 154); }
 
-ul {
+.big-papi {
   background-color: rgba(49, 48, 48, 0.603);
   width: 70%;
   margin: auto;
-  padding: 30px;
+  padding: 10px;
 	overflow-x: hidden;
   -webkit-box-shadow: inset rgb(241, 113, 156) 0 0 0 1px;
   border-radius: 8px;
@@ -237,4 +237,15 @@ span{
 
 .petInformation{
   display: none;
+}
+
+.aboutUsTitle {
+  font-family: 'Rockness';
+  font-size: 18vw;
+  color :rgb(241, 113, 156);
+  text-align: center;
+  max-width: 100%;
+  margin: 4%;
+  text-shadow: -1px -1px 0 rgb(250, 237, 237), 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+
 }

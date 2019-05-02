@@ -4,16 +4,16 @@
   <h3>Happy Ours<p class="slogan">HAPPY LOOKS GOOD ON YOU</p></h3>
   <h5><%= allResultsObject.currentIcon %><p id="temp"><%= allResultsObject.currentTemp %>&#176 F</p></h5>
   <div id="sundown">Sunset at<p id="sunsetting"><%= allResultsObject.sunset %> </p></div>
-  <ul>
+  <ul class="big-papi">
     <li class="location-res" >Happy Hour locations near <%= allResultsObject.address %>:</li>
    <li><img id="map" src="<%= allResultsObject.map %>" alt=""></li>
    <% for(let i = 0; i < allResultsObject.hh.length; i++) { %>
   <br><br><br><li class="name"> <%= allResultsObject.hh[i].name %> </li><br>
-  <li class="price"> <span> Price: </span> <%= allResultsObject.hh[i].prices %> / 5</li><br>
+  <li class="price"> <span> Price: </span> <%= allResultsObject.hh[i].prices %> / 5</li>
   <li class="rating"> <span> Rating: </span> <%= allResultsObject.hh[i].rating %> / 5</li><br>
   <li class="open"> <span>Open Now: </span><%= allResultsObject.hh[i].openNow %></li><br>
-  <li class="dist"> <span>Distance: </span><%= allResultsObject.routes[i].distance %></li><br>
-  <li class="dur"> <span>Duration: </span><%= allResultsObject.routes[i].duration %></li><br>
+  <li class="dist"> <span>Distance: </span><%= allResultsObject.routes[i].distance %></li>
+  <li class="dur"> <span>Duration: </span><%= allResultsObject.routes[i].duration %></li>
   <li class="ride"> <span>UberX Estimate: </span><%= allResultsObject.uber[i].priceEstimates %></li><br>
   <li>
     <input type="submit" value="Pet Friendly?" id="showForm">
@@ -27,5 +27,10 @@
   </ul>
   <script src="JS/app.js"></script>
 </body>
-<footer>Copyright 2019 &copy</footer>
+<footer>
+  <div class="aboutUsContainer">
+      <a href="/">Home</a><br>
+    </div>
+Copyright 2019 &copy
+</footer>
 </html>
