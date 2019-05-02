@@ -240,11 +240,7 @@ function searchUberData (request, response){
 //TODO: Complete this function. Add pet info to database!
 function addPetInformationToDB(request, response){
   console.log(request.body);
-  if(request.body === 'Yes'){
-    client.query('INSERT INTO pets (yes) VALUES ($1)', []).then();
-  }else{
-    client.query('INSERT INTO pets (no) VALUES ($1)', []).then();
-  }
+  response.render('happy_hour.ejs', {allResultsObject: allResultsObject});
 }
 
 // If connected, logs to the terminal which port it is on
