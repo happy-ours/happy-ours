@@ -31,7 +31,7 @@ app.use(methodOverride((request, response) => {
 app.get('/', handleUserInput);
 app.get('/happy_hour', searchGeocodeData);
 app.get('/about_us', (request, response) => response.render('about_us.ejs'));
-app.post('/pet_friendly', addPetInformationToDB);
+app.put('/pet_friendly', addPetInformationToDB);
 
 
 // ======================================================
@@ -232,15 +232,20 @@ function searchUberData (request, response){
   Promise.all([uber1, uber2, uber3, uber4, uber5]).then(result =>{
     allResultsObject.uber = result;
     //After all data is collected, render the page!
-    response.render('happy_hour.ejs', {allResultsObject:allResultsObject});
+    response.render('happy_hour.ejs', {allResultsObject: allResultsObject});
   });
 }
 
 // ----------------DATABASE---------------------------------------
-function addPetInformationToDB(request, response){
-  console.log(request.body);
-  response.redirect('/');
-}
+//TODO: Complete this function. Add pet info to database!
+// function addPetInformationToDB(request, response){
+//   console.log(request.body);
+//   if(request.body === 'Yes'){
+//     client.query('INSERT INTO pets (yes) VALUES ($1)', []).then();
+//   }else{
+//     client.query('INSERT INTO pets (no) VALUES ($1)', []).then();
+//   }
+// }
 
 // If connected, logs to the terminal which port it is on
 app.listen(PORT, () => { console.log(`App is running on port ${PORT}`)})
