@@ -2,20 +2,36 @@
 
 require('dotenv').config();
 
-// Sets the port to what is specified in the .ENV file or defaults to 3000
 const PORT = process.env.PORT || 3000;
 
-// Library that has all of the GET and Set commands
 const express = require('express');
 const superagent = require('superagent');
+const pg = require('pg');
+const methodOverride = require('method-override');
+
+// ======================================================
+// ----------------POSTGRES CLIENT-----------------------
+// ======================================================
+const client = new pg.Client(process.env.DATABASE_URL);
+client.on('error', console.error);
+client.connect();
 
 const app = express();
 app.use(express.static('./public'));
-
+app.use(express.urlencoded({extended:true}));
 app.set('view-engine', 'ejs');
+app.use(methodOverride((request, response) => {
+  if(request.body && request.body._method){
+    let method = request.body._method;
+    delete request.body._method;
+    return method;
+  }
+}));
+
 app.get('/', handleUserInput);
-app.get('/happyhour', searchGeocodeData);
+app.get('/happy_hour', searchGeocodeData);
 app.get('/about_us', (request, response) => response.render('about_us.ejs'));
+app.post('/pet_friendly', addPetInformationToDB);
 
 
 // ======================================================
@@ -115,36 +131,19 @@ function searchWeatherData(request, response) {
     //find happy hours with patios
     //otherwise, just find nearby happyhours
     if(currentWeather.currentTemp > 70 || currentWeather.currentIcon.toLowerCase() === 'clear-day'){
-      searchPatioPlacesData(request, response);
+      searchPlacesData(request, response, 'happy hour patio');
     }else{
-      searchHHPlacesData(request, response);
+      searchPlacesData(request, response, 'happy hour');
     }
   })
 }
 
 // ----------------GOOGLE PLACES------------------------------
-//Finds near by places with happy hour
+//Finds near by places with happy hour or happy hour with patio depending on weather
 //saves 5 places - each with the name of the restaurant, latitude, longitude, prices, rating, and if they are open
-function searchHHPlacesData(request, response) {
+function searchPlacesData(request, response, searchTerm) {
   const resultArray = [];
-  const URL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=happy hour&location=${allResultsObject.originLat},${allResultsObject.originLng}&radius=1600&key=${process.env.GOOGLE_API_KEY}`;
-  superagent.get(URL).then(result => {
-    const searchedResults = result.body.results;
-    for(let i = 0; i < 5; i++) {
-      const newRestaurant = new Places(searchedResults[i]);
-      resultArray.push(newRestaurant);
-    }
-    allResultsObject.hh = resultArray;
-    whenIsTheSunset(request, response);
-  })
-}
-
-// ----------------GOOGLE PLACES------------------------------
-//Finds near by places with happy hour & a patio
-//saves 5 places - each with the name of the restaurant, latitude, longitude, prices, rating, and if they are open
-function searchPatioPlacesData(request, response) {
-  const resultArray = [];
-  const URL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=happy hour patio&location=${allResultsObject.originLat},${allResultsObject.originLng}&radius=1600&key=${process.env.GOOGLE_API_KEY}`;
+  const URL = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${searchTerm}&location=${allResultsObject.originLat},${allResultsObject.originLng}&radius=1600&key=${process.env.GOOGLE_API_KEY}`;
   superagent.get(URL).then(result => {
     const searchedResults = result.body.results;
     for(let i = 0; i < 5; i++) {
@@ -233,8 +232,14 @@ function searchUberData (request, response){
   Promise.all([uber1, uber2, uber3, uber4, uber5]).then(result =>{
     allResultsObject.uber = result;
     //After all data is collected, render the page!
-    response.render('happyHour.ejs', {allResultsObject:allResultsObject});
+    response.render('happy_hour.ejs', {allResultsObject:allResultsObject});
   });
+}
+
+// ----------------DATABASE---------------------------------------
+function addPetInformationToDB(request, response){
+  console.log(request.body);
+  response.redirect('/');
 }
 
 // If connected, logs to the terminal which port it is on
