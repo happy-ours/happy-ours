@@ -238,14 +238,14 @@ function searchUberData (request, response){
 
 // ----------------DATABASE---------------------------------------
 //TODO: Complete this function. Add pet info to database!
-// function addPetInformationToDB(request, response){
-//   console.log(request.body);
-//   if(request.body === 'Yes'){
-//     client.query('INSERT INTO pets (yes) VALUES ($1)', []).then();
-//   }else{
-//     client.query('INSERT INTO pets (no) VALUES ($1)', []).then();
-//   }
-// }
+function addPetInformationToDB(request, response){
+  console.log(request.body);
+  if(request.body === 'Yes'){
+    client.query('INSERT INTO pets (yes) VALUES ($1)', []).then();
+  }else{
+    client.query('INSERT INTO pets (no) VALUES ($1)', []).then();
+  }
+}
 
 // If connected, logs to the terminal which port it is on
 app.listen(PORT, () => { console.log(`App is running on port ${PORT}`)})
