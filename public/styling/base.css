@@ -1,104 +1,35 @@
-/* ================================================ */
-/*---------------- About Us Styling---------------- */
-/* ================================================ */
+/* _________________ Custom Fonts _____________________ */
 
-
-.meetTheTeam{
-  margin-top: 4%;
+@font-face { 
+  font-family: 'Rockness'; src: url('../assets/Rockness.otf'); 
+  font-family: 'Rockness'; src: url('../assets/Rockness.ttf');
 }
 
-/* .aboutUsTitle{
-  font-size: 60px;
-  margin-top: 3%;
-  margin-left: 35%;
-  font-family: sans-serif;
-} */
-
-.aboutMe{
-  background-color: aliceblue;
-  margin-top: 4%;
-  width: 96%;
-  margin-left: 2%;
-  height: 275px;
+@font-face {
+  font-family: 'Dings'; src: url('../assets/Dings.ttf');
 }
 
-.aboutUsImg{
-  border-radius: 8px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
-  float: left;
-  width: 275px;
-  height: 275px;
+@font-face {
+  font-family: 'Retrocycles'; src: url('../assets/Retrocycles.otf');
 }
 
-.aboutUsTextList{
-  width: 59%;
-  float: right;
-  margin-right: 7%;
+@font-face {
+  font-family: 'Breathy'; src: url('../assets/SHOOTING.otf');
+  font-family: 'Breathy'; src: url('../assets/SHOOTING.ttf');
 }
 
-.name{
-  font-weight: bold;
-  font-size: 30px;
-  height: 30px;
-  line-height: 40px;
+@font-face {
+  font-family: 'Beb'; src: url('../assets/Beb.otf');
+  font-family: 'Beb'; src: url('../assets/Beb.ttf');
 }
 
-.bio{
-  font-size: 22px;
-  height: 220px;
-  font-family: sans-serif;
-  margin-top: 5%;
-}
+@font-face {
+  font-family: 'Nadia'; src: url('../assets/Nadia.ttf');
+} 
 
-.bio p{
-  position: absolute;
-  margin-top: 2%;
-  width: 60%;
-}
+/* _____________________________________________________ */
 
-.favBar{
-  /* margin-bottom: -5%; */
-  height: 10px;
-}
-
-.barLink{
-  text-decoration: none;
-  color: inherit;
-  font-weight: bold;
-  font-size: 22px;
-}
-
-
-.favBar:hover{
-  cursor: pointer;
-}
-
-.melissa{
-  background-color: #88ace7a1;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
-}
-
-.evan{
-  background-color: #78c3e3a9;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
-}
-
-.williams{
-  background-color: #69dfdda4;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
-}
-
-.kris{
-  background-color: #5adbb4a1;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
-}
-
-.ginger{
-  background-color: #4bd783a4;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+body {
+  background-size: 100%;
+  background: url(../assets/bob.jpg) no-repeat;
 }

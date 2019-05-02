@@ -1,3 +1,230 @@
-.petInformation{
-    display: none;
+/* _________________ Custom Fonts _____________________ */
+
+@font-face { 
+  font-family: 'Rockness'; src: url('../assets/Rockness.otf'); 
+  font-family: 'Rockness'; src: url('../assets/Rockness.ttf');
+}
+
+@font-face {
+  font-family: 'Dings'; src: url('../assets/Dings.ttf');
+}
+
+@font-face {
+  font-family: 'Retrocycles'; src: url('../assets/Retrocycles.otf');
+}
+
+@font-face {
+  font-family: 'Breathy'; src: url('../assets/SHOOTING.otf');
+  font-family: 'Breathy'; src: url('../assets/SHOOTING.ttf');
+}
+
+@font-face {
+  font-family: 'Beb'; src: url('../assets/Beb.otf');
+  font-family: 'Beb'; src: url('../assets/Beb.ttf');
+}
+
+@font-face {
+  font-family: 'Nadia'; src: url('../assets/Nadia.ttf');
+} 
+
+/* _____________________________________________________ */
+
+body {
+  color: rgb(250, 237, 237);
+  font-family: 'Archivo Narrow', sans-serif;
+  text-shadow: -1px -1px 0 rgb(49, 48, 48), 1px -1px 0 rgb(49, 48, 48), -1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48);
+}
+
+h1 {
+  font-family: 'Rockness';
+  font-size: 24vw;
+  color :rgb(241, 113, 156);
+  text-shadow: -1px -1px 0 rgb(250, 237, 237), 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+
+h3 {
+  font-family: 'Rockness';
+  font-size: 8vw;
+  color: rgb(241, 113, 156);
+  text-shadow: -1px -1px 0 rgb(250, 237, 237), 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+
+h5 {
+  font-size: 3vw;
+  color: rgb(252, 246, 223);
+  text-shadow: 1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48);
+  font-family: 'Amatic SC', cursive;
+}
+
+h4 {
+  font-size: 3vw;
+  color: rgb(252, 246, 223);
+  font-family: 'Beb';
+  text-shadow: 2px 2px 0 rgb(49, 48, 48), 2px 2px 0 rgb(49, 48, 48), 2px 2px 0 rgb(49, 48, 48), 2px 2px 0 rgb(49, 48, 48);
+}
+
+.slogan {
+  font-size: 1.5vw;
+  font-family: 'Archivo Narrow', sans-serif;
+  color: rgb(252, 246, 223);
+  text-shadow: 1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48);
+}
+
+
+.location-res {
+  font-size: 26px;
+  border-bottom: 2px solid rgb(241, 113, 156);
+  color: rgb(252, 246, 223);
+  text-shadow: 1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48);
+  font-family: 'Breathy';
+}
+
+.name {
+  font-size: 26px;
+  text-decoration: underline rgb(250, 228, 154);
+  font-family: 'Nadia';
+}
+
+#temp {
+  font-size: 3vw;
+  color: rgb(252, 246, 223);
+  font-family: 'Amatic SC', cursive;
+  text-shadow: 1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48);
+}
+
+#sundown {
+  font-size: 3vw;
+  color: rgb(252, 246, 223);
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
+  text-shadow: 1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48), 1px 1px 0 rgb(49, 48, 48);
+
+}
+
+.aboutUsContainer {
+  font-family: 'Archivo Narrow', sans-serif;
+  text-align: center;
+}
+
+a:visited { color: rgb(250, 228, 154); }
+
+.big-papi {
+  background-color: rgba(49, 48, 48, 0.603);
+  -webkit-box-shadow: inset rgb(241, 113, 156) 0 0 0 1px;
+  border-radius: 8px;
+}
+
+#map {
+  border-radius: 8px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+footer {
+  color: rgb(250, 228, 154);
+}
+
+.searchbar {
+    background-color: rgba(255, 244, 244, 0.918);
+    color: rgba(41, 38, 38, 0.938);
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.searchbar::placeholder {
+    color: rgba(19, 18, 18, 0.644);
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.searchbar:focus {
+    font-family: 'Archivo Narrow', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    border:rgba(255, 244, 244, 0.774) solid 2px;
+    outline: none;
+}
+
+.bar {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+.instagram {
+  background-color: rgba(255, 244, 244, 0.438);
+  -webkit-box-shadow: inset rgba(49, 48, 48, 0.603) 0 0 0 1px;
+}
+
+.price, .dist, .dur, .ride, .rating, .open {
+  font-size: 18px;
+  color: rgb(248, 233, 184);
+}
+
+span{
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(241, 195, 211);
+  font-family: 'Amatic SC', cursive;
+}
+
+.aboutUsTitle {
+  font-family: 'Rockness';
+  font-size: 18vw;
+  color :rgb(241, 113, 156);
+  text-shadow: -1px -1px 0 rgb(250, 237, 237), 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+
+}
+
+.aboutMe{
+  background-color: aliceblue;
+}
+
+.aboutUsImg{
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bio{
+  font-size: 30px;
+  font-family: sans-serif;
+}
+
+.barLink{
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.favBar:hover{
+  cursor: pointer;
+}
+
+.melissa{
+  background-color: #88ace7a1;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+.evan{
+  background-color: #78c3e3a9;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+.williams{
+  background-color: #69dfdda4;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+.kris{
+  background-color: #5adbb4a1;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ginger{
+  background-color: #4bd783a4;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 }
